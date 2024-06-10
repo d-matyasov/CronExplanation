@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Объяснить cron</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <h1>Объяснить cron</h1>
+    <br>
+<!--    Форма для ввода значения-->
+    <form th:method="POST" th:action="@{/}">
+        <label for="string">Введите строку в формате cron:</label>
+        <input type="text" id="string" name="string" th:value="${string}">
+        <input type="submit" value="Объяснить">
+    </form>
+    <br>
+<!--    Результат-->
+    <div th:switch="${result}">
+        <div th:case="null"/>
+        <div th:case="*">
+            <h2>Результат:</h2>
+            <p th:text="${result}" style="white-space: pre-line">value</p>
+        </div>
+    </div>
+</body>
+</html>
